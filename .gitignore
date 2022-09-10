@@ -1,0 +1,7 @@
+.vs/
+S8APP1/.vs
+obj
+bin
+*.suo
+*.user
+packages
