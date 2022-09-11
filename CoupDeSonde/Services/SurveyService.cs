@@ -19,11 +19,14 @@ namespace CoupDeSonde.Services
 
         public SurveyResponse GetSurvey(int SurveyId)
         {
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "\\sondage.txt");
-            Console.WriteLine(path);
-            //var text = System.IO.File.ReadAllText(path);
-            //Console.WriteLine(text);
-            return new SurveyResponse(new List<String>());
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "sondage.txt");
+            var text = System.IO.File.ReadAllText(path);
+            var surveys = text.Split("\n\n");
+            if(surveys.Length <= SurveyId)
+                return new SurveyResponse(new List<String>());
+
+            var questions = surveys[SurveyId].Split("\n");
+            return new SurveyResponse(questions.ToList());
         }
     }
 }
