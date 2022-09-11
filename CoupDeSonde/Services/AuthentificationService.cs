@@ -10,6 +10,7 @@ namespace CoupDeSonde.Services
     public interface IAuthentificationService
     {
         LoginResponse Login(LoginRequest model);
+        User GetByUsername(String username);
     }
 
     public class AuthentificationService : IAuthentificationService
@@ -36,6 +37,11 @@ namespace CoupDeSonde.Services
                 return new LoginResponse(currentUser, generateJwtToken(currentUser));
             else
                 return null;
+        }
+
+        public User GetByUsername(String username)
+        {
+            return _users.First(x => x.Username == username);
         }
 
         private string generateJwtToken(User user)

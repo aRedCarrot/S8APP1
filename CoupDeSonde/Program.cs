@@ -1,6 +1,6 @@
 using CoupDeSonde;
 using CoupDeSonde.Services;
-using Microsoft.AspNetCore.Authentication;
+using CoupDeSonde.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +13,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("jwt"));
 builder.Services.AddScoped<IAuthentificationService, AuthentificationService>();
-
+builder.Services.AddScoped<ISurveyService, SurveyService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,6 +24,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseAuthorization();
+app.UseMiddleware<JwtTokenValidator>();
 app.MapControllers();
 app.Run();
