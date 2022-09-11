@@ -1,6 +1,5 @@
 ﻿using CoupDeSonde.Models;
 using CoupDeSonde.Services;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoupDeSonde.Controllers
@@ -19,7 +18,7 @@ namespace CoupDeSonde.Controllers
         }
 
         [Authorize]
-        [HttpGet(Name = "getSurvey")]
+        [HttpGet("getSurvey")]
         public IActionResult getSurvey(SurveyRequest request)
         {
             return Ok(_surveyService.GetSurvey(request.Id));
