@@ -5,12 +5,17 @@ namespace CoupDeSonde.Models
     public class SurveyResponse
     {
         public String? Error { get; set; }
-        public List<SurveyQuestion> SurveyQuestions { get; set; }
 
-        public SurveyResponse(List<SurveyQuestion> surveyQuestions, String? error = null)
+        // Used for sending a specific Survey
+        public Survey? Survey { get; set; }
+
+        // Used for sending a list of Surveys
+        public List<Survey>? Surveys { get; set; }
+
+        public SurveyResponse()
         {
-            SurveyQuestions = surveyQuestions;
-            Error = error;
+            Error = null;
+            Surveys = new List<Survey>();
         }
     }
 }
