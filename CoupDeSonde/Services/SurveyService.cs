@@ -5,8 +5,9 @@ namespace CoupDeSonde.Services
 {
     public interface ISurveyService
     {
-        SurveyResponse GetSurvey(int SurveyId);
-        SurveyResponse GetSurveys();
+        SurveyRequestResponse GetSurvey(int SurveyId);
+        SurveyRequestResponse GetSurveys();
+        bool SubmitSurvey(SurveyResponse response);
     }
 
     public class SurveyService : ISurveyService
@@ -20,9 +21,9 @@ namespace CoupDeSonde.Services
             ParseSurveyFile();
         }
 
-        public SurveyResponse GetSurvey(int SurveyId)
+        public SurveyRequestResponse GetSurvey(int SurveyId)
         {
-            var response = new SurveyResponse();
+            var response = new SurveyRequestResponse();
             if (SurveyId > _surveys.Count  || SurveyId < 1)
             {
                 response.Error = "Invalid SurveyId, Available survey Ids are [1," + (_surveys.Count) + "]";
@@ -32,9 +33,9 @@ namespace CoupDeSonde.Services
             return response;
         }
 
-        public SurveyResponse GetSurveys()
+        public SurveyRequestResponse GetSurveys()
         {
-            var response = new SurveyResponse();
+            var response = new SurveyRequestResponse();
             if (_surveys.Count == 0)
             {
                 response.Error = "There are currently no surveys available";
@@ -42,6 +43,24 @@ namespace CoupDeSonde.Services
             }
             response.Surveys = _surveys;
             return response;
+        }
+
+        public bool SubmitSurvey(SurveyResponse response)
+        {
+            if (!IsValidResponse(response))
+                return false;
+
+        }
+
+        private bool IsValidResponse(SurveyResponse response)
+        {
+            var sondageId = response.SurveyId;
+            Survey sondage = _surveys.Single(survey => survey.surveyId == response.SurveyId);
+            if (!sondage) return false;
+            foreach(QuestionAnswer qa in response.Responses)
+            {
+                sondage.SurveyQuestions.Single
+            }
         }
 
         private void ParseSurveyFile()
@@ -56,6 +75,7 @@ namespace CoupDeSonde.Services
                 END_OF_LINE = "\r\n";
 
             var surveys = text.Split(END_OF_LINE + END_OF_LINE);
+            var surveyId = 0;
             foreach (String survey in surveys)
             {
                 var questions = survey.Split(END_OF_LINE).ToList();
@@ -86,6 +106,8 @@ namespace CoupDeSonde.Services
                     newSurvey.SurveyQuestions.Add(newQuestion);
                     questionId++;
                 }
+                newSurvey.SurveyId = surveyId;
+                surveyId++;
                 _surveys.Add(newSurvey);
             }
             Console.WriteLine("Parsed sondage.txt and found " + _surveys.Count + " survey(s)");

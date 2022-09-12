@@ -2,6 +2,7 @@
 {
     public class Survey
     {
+        public Int32 SurveyId { get; set; }
         public string Title { get; set; }
         public List<SurveyQuestion> SurveyQuestions { get; set; }
 

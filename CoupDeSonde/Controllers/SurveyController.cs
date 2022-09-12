@@ -30,5 +30,15 @@ namespace CoupDeSonde.Controllers
         {
             return Ok(_surveyService.GetSurveys());
         }
+
+        [Authorize]
+        [HttpPost("submit")]
+        public IActionResult submitSurvey(SurveyResponse response)
+        {
+            if (_surveyService.SubmitSurvey(response))
+                return Ok(­­"Yeet");
+            else
+                return NotOk("Dumb");
+        }
     }
 }
