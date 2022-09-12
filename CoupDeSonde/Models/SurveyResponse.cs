@@ -8,7 +8,7 @@ namespace CoupDeSonde.Models
 
         public List<QuestionAnswer> Responses { get; set; }
 
-        public SurveyRequestResponse(Int32 surveyId, List<QuestionAnswer> responses)
+        public SurveyResponse(Int32 surveyId, List<QuestionAnswer> responses)
         {
             SurveyId = surveyId;
             Responses = responses;

@@ -35,10 +35,11 @@ namespace CoupDeSonde.Controllers
         [HttpPost("submit")]
         public IActionResult submitSurvey(SurveyResponse response)
         {
-            if (_surveyService.SubmitSurvey(response))
-                return Ok(­­"Yeet");
+            var user = HttpContext.Items["User"] as User;
+            if (_surveyService.SubmitSurvey(response, user?.Username))
+                return Ok();
             else
-                return NotOk("Dumb");
+                return BadRequest(new { message = "Invalid answer" });
         }
     }
 }

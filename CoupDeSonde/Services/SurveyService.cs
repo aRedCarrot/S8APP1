@@ -7,17 +7,19 @@ namespace CoupDeSonde.Services
     {
         SurveyRequestResponse GetSurvey(int SurveyId);
         SurveyRequestResponse GetSurveys();
-        bool SubmitSurvey(SurveyResponse response);
+        bool SubmitSurvey(SurveyResponse response, string username);
     }
 
     public class SurveyService : ISurveyService
     {
         private readonly AppSettings _appSettings;
+        private readonly IPersistenceService _persistenceService;
         private List<Survey> _surveys = new List<Survey>();
 
         public SurveyService(IOptions<AppSettings> appSettings)
         {
             _appSettings = appSettings.Value;
+            _persistenceService = new PersistenceService(_appSettings);
             ParseSurveyFile();
         }
 
@@ -45,22 +47,35 @@ namespace CoupDeSonde.Services
             return response;
         }
 
-        public bool SubmitSurvey(SurveyResponse response)
+        public bool SubmitSurvey(SurveyResponse response, string username)
         {
             if (!IsValidResponse(response))
                 return false;
 
+            _persistenceService.Save(response, username);
+
+            return true;
         }
 
         private bool IsValidResponse(SurveyResponse response)
         {
             var sondageId = response.SurveyId;
-            Survey sondage = _surveys.Single(survey => survey.surveyId == response.SurveyId);
-            if (!sondage) return false;
+            var survey = _surveys.Single(survey => survey.SurveyId == response.SurveyId);
+            if (survey != null) 
+                return false;
+
             foreach(QuestionAnswer qa in response.Responses)
             {
-                sondage.SurveyQuestions.Single
+                var question = survey.SurveyQuestions.Single(question => question.QuestionId == qa.QuestionId);
+                if (question != null)
+                    return false;
+
+                var answer = question.Options.Single(answer => answer.OptionValue == qa.Answer);
+                if (answer != null)
+                    return false;
             }
+
+            return true;
         }
 
         private void ParseSurveyFile()
