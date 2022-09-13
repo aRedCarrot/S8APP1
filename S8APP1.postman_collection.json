@@ -1,0 +1,219 @@
+{
+	"info": {
+		"_postman_id": "d3d993dd-b202-4e6e-8e2b-0227aa2ff4aa",
+		"name": "S8APP1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/Login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSurveys",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwibmJmIjoxNjYzMDI5NzUxLCJleHAiOjE2NjMxMTYxNTEsImlhdCI6MTY2MzAyOTc1MX0.Ti2U3y_CXrcg9XNqWfVYXLCLmk2nLW-kckWgtn_ZQcI",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{S8APP1TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/Survey/getSurveys",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"Survey",
+						"getSurveys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSurvey Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwibmJmIjoxNjYzMDI5NzUxLCJleHAiOjE2NjMxMTYxNTEsImlhdCI6MTY2MzAyOTc1MX0.Ti2U3y_CXrcg9XNqWfVYXLCLmk2nLW-kckWgtn_ZQcI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/Survey/getSurvey/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"Survey",
+						"getSurvey",
+						"1"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Submit Valide",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwibmJmIjoxNjYzMDI5NzUxLCJleHAiOjE2NjMxMTYxNTEsImlhdCI6MTY2MzAyOTc1MX0.Ti2U3y_CXrcg9XNqWfVYXLCLmk2nLW-kckWgtn_ZQcI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"SurveyId\" : 1,\r\n    \"Responses\" : [\r\n        {\r\n            \"QuestionId\" : 1,\r\n            \"Answer\": \"a\"\r\n        },\r\n        {\r\n            \"QuestionId\" : 2,\r\n            \"Answer\": \"b\"\r\n        },\r\n        {\r\n            \"QuestionId\" : 3,\r\n            \"Answer\": \"c\"\r\n        },\r\n        {\r\n            \"QuestionId\" : 4,\r\n            \"Answer\": \"a\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/Survey/submit",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"Survey",
+						"submit"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Submit Valide Invalide",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwibmJmIjoxNjYzMDI5NzUxLCJleHAiOjE2NjMxMTYxNTEsImlhdCI6MTY2MzAyOTc1MX0.Ti2U3y_CXrcg9XNqWfVYXLCLmk2nLW-kckWgtn_ZQcI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"SurveyId\" : 1,\r\n    \"Responses\" : [\r\n        {\r\n            \"QuestionId\" : 1,\r\n            \"Answer\": \"z\"\r\n        },\r\n        {\r\n            \"QuestionId\" : 2,\r\n            \"Answer\": \"8\"\r\n        },\r\n        {\r\n            \"QuestionId\" : 3,\r\n            \"Answer\": \"e\"\r\n        },\r\n        {\r\n            \"QuestionId\" : 4,\r\n            \"Answer\": \"a1\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/Survey/submit",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"Survey",
+						"submit"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "S8APP1TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwibmJmIjoxNjYzMDIxMTYxLCJleHAiOjE2NjMxMDc1NjEsImlhdCI6MTY2MzAyMTE2MX0.hixkDl8LdtZ0HM4OTHUq8BjmqeaESrZG7zrA-ihQAVU"
+		}
+	]
+}
