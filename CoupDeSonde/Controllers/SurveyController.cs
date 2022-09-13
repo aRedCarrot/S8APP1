@@ -39,7 +39,7 @@ namespace CoupDeSonde.Controllers
             if (_surveyService.SubmitSurvey(response, user?.Username))
                 return Ok();
             else
-                return BadRequest(new { message = "Invalid answer" });
+                return BadRequest(new { message = "The submitted survey response format was incorrect or your answer(s) was/were not a valid choice(s)" });
         }
     }
 }

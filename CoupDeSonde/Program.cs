@@ -15,7 +15,7 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("jwt"));
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("S8APP1"));
 builder.Services.AddScoped<IAuthentificationService, AuthentificationService>();
 builder.Services.AddScoped<ISurveyService, SurveyService>();
 var app = builder.Build();

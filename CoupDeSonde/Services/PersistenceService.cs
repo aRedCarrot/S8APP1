@@ -1,8 +1,6 @@
 ﻿using CoupDeSonde.Models;
-using Microsoft.Extensions.Options;
-using System.Xml.Linq;
+using System.Collections.Generic;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace CoupDeSonde.Services
 {
@@ -22,9 +20,22 @@ namespace CoupDeSonde.Services
         public void Save(SurveyResponse survey, string username)
         {
             var path = Path.GetFullPath(_appSettings.persistencePath);
-            var answer = JsonSerializer.Serialize(survey);
-            
-            File.AppendAllText(path, answer);
+            var newRecord = new SurveyRecordEntry(username, survey);
+            var records = new List<SurveyRecordEntry>();
+            try
+            {
+                records = JsonSerializer.Deserialize<List<SurveyRecordEntry>>(File.ReadAllText(path));
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Failed to deserialize records file, recreating a new one");
+            }
+            finally
+            {
+                records?.Add(newRecord);
+                var newRecords = JsonSerializer.Serialize(records);
+                File.WriteAllText(path, newRecords);
+            }
         }
     }
 }

@@ -1,9 +1,10 @@
-﻿namespace CoupDeSonde.Models
+﻿
+namespace CoupDeSonde.Models
 {
     public class QuestionAnswer
     {
-        public Int32 QuestionId;
-        public string Answer;
+        public Int32 QuestionId { get; set; }
+        public string Answer { get; set; }
 
         public QuestionAnswer(Int32 questionId, string answer)
         {

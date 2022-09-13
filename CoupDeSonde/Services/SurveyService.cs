@@ -59,23 +59,27 @@ namespace CoupDeSonde.Services
 
         private bool IsValidResponse(SurveyResponse response)
         {
-            var sondageId = response.SurveyId;
-            var survey = _surveys.Single(survey => survey.SurveyId == response.SurveyId);
-            if (survey != null) 
-                return false;
-
-            foreach(QuestionAnswer qa in response.Responses)
+            try
             {
-                var question = survey.SurveyQuestions.Single(question => question.QuestionId == qa.QuestionId);
-                if (question != null)
+                var survey = _surveys.Single(survey => survey.SurveyId == response.SurveyId);
+                if (survey == null)
                     return false;
 
-                var answer = question.Options.Single(answer => answer.OptionValue == qa.Answer);
-                if (answer != null)
-                    return false;
+                foreach (QuestionAnswer qa in response.Responses)
+                {
+                    var question = survey.SurveyQuestions.SingleOrDefault(question => question?.QuestionId == qa.QuestionId,null);
+                    if (question == null)
+                        return false;
+
+                    var answer = question.Options.SingleOrDefault(answer => answer?.OptionTitle.ToUpper() == qa.Answer.ToUpper(),null);
+                    if (answer == null)
+                        return false;
+                }
+
+                return true;
+            } catch (Exception e) {
+                return false;
             }
-
-            return true;
         }
 
         private void ParseSurveyFile()
@@ -84,7 +88,6 @@ namespace CoupDeSonde.Services
             var text = File.ReadAllText(path);
             
             // Our teacher gave us a txt file with linux encoded end lines, while our dummy PC use windows end line
-            // Must adapt which one it is
             var END_OF_LINE = "\n";
             if (text.Contains('\r'))
                 END_OF_LINE = "\r\n";
