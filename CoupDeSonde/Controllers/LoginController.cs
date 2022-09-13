@@ -8,20 +8,17 @@ namespace CoupDeSonde.Controllers
     [Route("[controller]")]
     public class LoginController : ControllerBase
     {
-
-        private readonly ILogger<LoginController> _logger;
         private IAuthentificationService _authService;
 
-        public LoginController(ILogger<LoginController> logger, IAuthentificationService authService)
+        public LoginController(IAuthentificationService authService)
         {
-            _logger = logger;
             _authService = authService;
         }
 
         [HttpPost(Name = "Login")]
-        public IActionResult Login(LoginRequest model)
+        public IActionResult Login(LoginRequest request)
         {
-            var response = _authService.Login(model);
+            var response = _authService.Login(request);
 
             if (response == null)
                 return BadRequest(new { message = "Username or password is incorrect" });

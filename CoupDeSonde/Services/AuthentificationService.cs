@@ -9,7 +9,7 @@ namespace CoupDeSonde.Services
 {
     public interface IAuthentificationService
     {
-        LoginResponse Login(LoginRequest model);
+        LoginResponse Login(LoginRequest request);
         User GetByUsername(String username);
     }
 
@@ -22,16 +22,19 @@ namespace CoupDeSonde.Services
             new User("TiBob", "password"),
             new User("Secure", "1234")
         };
-        private readonly AppSettings _appSettings;
+        private readonly AppSettings? _appSettings;
+        public AuthentificationService()
+        {
+        }
 
         public AuthentificationService(IOptions<AppSettings> appSettings)
         {
             _appSettings = appSettings.Value;
         }
 
-        public LoginResponse? Login(LoginRequest model)
+        public LoginResponse? Login(LoginRequest request)
         {
-            var currentUser = _users.SingleOrDefault(user => user.Username == model.Username && user.Password == model.Password);
+            var currentUser = _users.SingleOrDefault(user => user.Username == request.Username && user.Password == request.Password);
 
             if (currentUser != null )
                 return new LoginResponse(currentUser, generateJwtToken(currentUser));

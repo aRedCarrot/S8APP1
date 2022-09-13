@@ -8,12 +8,10 @@ namespace CoupDeSonde.Controllers
     [Route("[controller]")]
     public class SurveyController : Controller
     {
-        private readonly ILogger<LoginController> _logger;
         private ISurveyService _surveyService;
 
-        public SurveyController(ILogger<LoginController> logger, ISurveyService surveyService)
+        public SurveyController(ISurveyService surveyService)
         {
-            _logger = logger;
             _surveyService = surveyService;
         }
 
