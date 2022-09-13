@@ -1,4 +1,5 @@
 ﻿using CoupDeSonde.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -17,12 +18,13 @@ namespace CoupDeSonde.Services
     {
         private List<User> _users = new List<User>
         {
-            new User("admin", "admin"),
-            new User("Mario", "Peach<3"),
-            new User("TiBob", "password"),
-            new User("Secure", "1234")
+            new User("admin", "AQAAAAEAACcQAAAAEJYZUWmKW5xCOmiNHp0eBdzOIdoPUDYy7h0gTtVZwWfdBYVXTm2SUJwA2pyfGUEOdg=="),//admin
+            new User("Mario", "AQAAAAEAACcQAAAAEMMYpvNr5RKfSY1LvF7DqExOmKNfeBpLvhz3u/HqQMk8yhFt3bYtqC74hgZTFQ0vmw=="),//Peach<3
+            new User("TiBob", "AQAAAAEAACcQAAAAEJaQhT2VDKAlQt5xyU0Kk6oHWdh3wyBP5hIYMCuLnry/WIdufNBYXx71FfyZ0Ybt9w=="),//password
+            new User("Secure", "AQAAAAEAACcQAAAAEC/VyigmKd8BYab13ZYgCk7WXSpmQwjwxsyWyQv6E7MQKDmpnEafmX+WO+CzHE80yA==")//1234
         };
         private readonly AppSettings? _appSettings;
+        private readonly PasswordHasher<User> _hasher = new PasswordHasher<User>();
         public AuthentificationService()
         {
         }
@@ -30,16 +32,17 @@ namespace CoupDeSonde.Services
         public AuthentificationService(IOptions<AppSettings> appSettings)
         {
             _appSettings = appSettings.Value;
+            _users.ForEach(user => Console.WriteLine(_hasher.HashPassword(user, user.PasswordHash)));
         }
 
         public LoginResponse? Login(LoginRequest request)
         {
-            var currentUser = _users.SingleOrDefault(user => user.Username == request.Username && user.Password == request.Password);
+            var currentUser = _users.SingleOrDefault(user => user.Username == request.Username);
 
-            if (currentUser != null )
-                return new LoginResponse(currentUser, generateJwtToken(currentUser));
-            else
+            if (currentUser == null || _hasher.VerifyHashedPassword(currentUser, currentUser.PasswordHash, request.Password) == PasswordVerificationResult.Failed)
                 return null;
+
+            return new LoginResponse(currentUser, generateJwtToken(currentUser));
         }
 
         public User GetByUsername(String username)
