@@ -61,16 +61,25 @@ namespace CoupDeSonde.Services
         {
             try
             {
+                //Check if survey id exist
                 var survey = _surveys.Single(survey => survey.SurveyId == response.SurveyId);
                 if (survey == null)
                     return false;
 
+                var surveyQuestions = survey.SurveyQuestions.Select(question => question.QuestionId);
+                var responseQuestions = response.Responses.Select(response => response.QuestionId);
+                //checked if all questions are answered
+                if (surveyQuestions.Count() != responseQuestions.Count() || surveyQuestions.Except(responseQuestions).Any())
+                    return false;
+
                 foreach (QuestionAnswer qa in response.Responses)
                 {
+                    //Check if question id exist
                     var question = survey.SurveyQuestions.SingleOrDefault(question => question?.QuestionId == qa.QuestionId,null);
                     if (question == null)
                         return false;
 
+                    //Check if option exist
                     var answer = question.Options.SingleOrDefault(answer => answer?.OptionTitle.ToUpper() == qa.Answer.ToUpper(),null);
                     if (answer == null)
                         return false;

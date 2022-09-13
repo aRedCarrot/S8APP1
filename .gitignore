@@ -38,3 +38,4 @@ bin
 *.suo
 *.user
 packages
+CoupDeSonde/surveyAnswers.json
