@@ -51,10 +51,7 @@ namespace CoupDeSonde.Services
         {
             if (!IsValidResponse(response))
                 return false;
-
-            _persistenceService.Save(response, username);
-
-            return true;
+            return _persistenceService.Save(response, username);
         }
 
         private bool IsValidResponse(SurveyResponse response)
