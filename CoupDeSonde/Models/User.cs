@@ -7,12 +7,12 @@ namespace CoupDeSonde.Models
         public string Username { get; set; }
 
         [JsonIgnore]
-        public string Password { get; set; }
+        public string PasswordHash { get; set; }
 
-        public User(string username, string password)
+        public User(string username, string passwordHash)
         {
             Username = username;
-            Password = password;
+            PasswordHash = passwordHash;
         }
 
     }
