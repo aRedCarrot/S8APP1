@@ -47,31 +47,15 @@ namespace CoupDeSonde.Services
         }
 
         private Dictionary<string, List<SurveyResponse>> getRecords(){
-            try
-            {
-                var path = Path.GetFullPath(_appSettings.persistencePath);
-                return JsonSerializer.Deserialize<Dictionary<string, List<SurveyResponse>>>(File.ReadAllText(path));
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Failed to deserialize records file, recreating file");
-                return new Dictionary<string, List<SurveyResponse>>();
-            }
+            var path = Path.GetFullPath(_appSettings.persistencePath);
+            return JsonSerializer.Deserialize<Dictionary<string, List<SurveyResponse>>>(File.ReadAllText(path));
         } 
 
         private void writeRecords(Dictionary<string, List<SurveyResponse>> newRecords)
         {
-            try
-            {
-                var path = Path.GetFullPath(_appSettings.persistencePath);
-                var json = JsonSerializer.Serialize(newRecords);
-                File.WriteAllText(path, json);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Failed to serialize records file, entry will not be saved");
-                throw new Exception("Json seralizing failed");
-            }
+            var path = Path.GetFullPath(_appSettings.persistencePath);
+            var json = JsonSerializer.Serialize(newRecords);
+            File.WriteAllText(path, json);
         }
             
     }
