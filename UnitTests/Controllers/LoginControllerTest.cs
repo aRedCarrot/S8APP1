@@ -26,11 +26,22 @@ namespace UnitTests.Controllers
             var request = new LoginRequest();
             request.Username = "testRequest";
             request.Password = "testRequest";
-            var expectedResponse = new LoginResponse(new User("test", "test"), "token");
+            var expectedResponse = new LoginResponse(new User("testRequest", "testRequest"), "token");
             mockAuthentificationService.Setup<LoginResponse>(_ => _.Login(request)).Returns(expectedResponse);
 
             var actual = loginController.Login(request);
             actual.Should().BeEquivalentTo(new OkObjectResult(expectedResponse));
+        }
+
+        [Fact]
+        public void Login_OnInvalidRequest_ReturnsBadRequest()
+        {
+            var request = new LoginRequest();
+            request.Username = "testRequest";
+            request.Password = "WrongTest";
+
+            var actual = loginController.Login(request);
+            actual.Should().BeEquivalentTo(new BadRequestObjectResult(new { message = "Username or password is incorrect" }));
         }
     }
 }
