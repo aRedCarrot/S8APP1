@@ -6,9 +6,9 @@
         public string Title { get; set; }
         public List<SurveyQuestion> SurveyQuestions { get; set; }
 
-        public Survey(string? title)
+        public Survey(string title)
         {
-            Title = title ?? "";
+            Title = title;
             SurveyQuestions = new List<SurveyQuestion>();
         }
     }

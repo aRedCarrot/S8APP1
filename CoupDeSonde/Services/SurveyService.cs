@@ -56,10 +56,10 @@ namespace CoupDeSonde.Services
 
             foreach (QuestionAnswer qa in response.Responses)
             {
-                var question = survey.SurveyQuestions.SingleOrDefault(question => question?.QuestionId == qa.QuestionId,null);
+                var question = survey.SurveyQuestions.Single(question => question.QuestionId == qa.QuestionId);
 
                 //Check if option exist
-                var answer = question.Options.SingleOrDefault(answer => answer?.OptionTitle.ToUpper() == qa.Answer.ToUpper(),null);
+                var answer = question.Options.SingleOrDefault(answer => answer.OptionTitle.ToUpper() == qa.Answer.ToUpper(),null);
                 if (answer == null)
                     return false;
             }

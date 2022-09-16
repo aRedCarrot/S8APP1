@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<coverage version="1.0" date="2022-09-16_17-43-45" tag="">
+  <assembly name="CoupDeSonde">
+    <class name="CoupDeSonde.AppSettings" coveredlines="2" coverablelines="2" totallines="9" coveredbranches="0" totalbranches="0" coveredcodeelements="2" totalcodeelements="2" />
+    <class name="CoupDeSonde.AuthorizeAttribute" coveredlines="0" coverablelines="7" totallines="18" coveredbranches="0" totalbranches="2" coveredcodeelements="0" totalcodeelements="1" />
+    <class name="CoupDeSonde.Controllers.LoginController" coveredlines="10" coverablelines="10" totallines="29" coveredbranches="2" totalbranches="2" coveredcodeelements="2" totalcodeelements="2" />
+    <class name="CoupDeSonde.Controllers.SurveyController" coveredlines="13" coverablelines="13" totallines="36" coveredbranches="3" totalbranches="4" coveredcodeelements="3" totalcodeelements="3" />
+    <class name="CoupDeSonde.Middlewares.JwtTokenValidator" coveredlines="32" coverablelines="32" totallines="60" coveredbranches="4" totalbranches="4" coveredcodeelements="3" totalcodeelements="3" />
+    <class name="CoupDeSonde.Models.LoginRequest" coveredlines="2" coverablelines="2" totallines="13" coveredbranches="0" totalbranches="0" coveredcodeelements="2" totalcodeelements="2" />
+    <class name="CoupDeSonde.Models.LoginResponse" coveredlines="7" coverablelines="7" totallines="15" coveredbranches="0" totalbranches="0" coveredcodeelements="3" totalcodeelements="3" />
+    <class name="CoupDeSonde.Models.QuestionAnswer" coveredlines="7" coverablelines="7" totallines="15" coveredbranches="0" totalbranches="0" coveredcodeelements="3" totalcodeelements="3" />
+    <class name="CoupDeSonde.Models.Survey" coveredlines="8" coverablelines="8" totallines="15" coveredbranches="1" totalbranches="2" coveredcodeelements="4" totalcodeelements="4" />
+    <class name="CoupDeSonde.Models.SurveyOption" coveredlines="7" coverablelines="7" totallines="28" coveredbranches="0" totalbranches="0" coveredcodeelements="3" totalcodeelements="3" />
+    <class name="CoupDeSonde.Models.SurveyQuestion" coveredlines="9" coverablelines="9" totallines="28" coveredbranches="0" totalbranches="0" coveredcodeelements="4" totalcodeelements="4" />
+    <class name="CoupDeSonde.Models.SurveyRequestResponse" coveredlines="7" coverablelines="7" totallines="18" coveredbranches="0" totalbranches="0" coveredcodeelements="3" totalcodeelements="3" />
+    <class name="CoupDeSonde.Models.SurveyResponse" coveredlines="7" coverablelines="7" totallines="18" coveredbranches="0" totalbranches="0" coveredcodeelements="3" totalcodeelements="3" />
+    <class name="CoupDeSonde.Models.User" coveredlines="7" coverablelines="7" totallines="19" coveredbranches="0" totalbranches="0" coveredcodeelements="3" totalcodeelements="3" />
+    <class name="CoupDeSonde.Services.AuthentificationService" coveredlines="34" coverablelines="34" totallines="65" coveredbranches="4" totalbranches="4" coveredcodeelements="4" totalcodeelements="4" />
+    <class name="CoupDeSonde.Services.PersistenceService" coveredlines="34" coverablelines="34" totallines="62" coveredbranches="10" totalbranches="10" coveredcodeelements="5" totalcodeelements="5" />
+    <class name="CoupDeSonde.Services.SurveyService" coveredlines="78" coverablelines="78" totallines="119" coveredbranches="26" totalbranches="28" coveredcodeelements="5" totalcodeelements="5" />
+    <class name="Program" coveredlines="20" coverablelines="20" totallines="35" coveredbranches="2" totalbranches="2" coveredcodeelements="1" totalcodeelements="1" />
+  </assembly>
+</coverage>

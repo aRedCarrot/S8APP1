@@ -27,7 +27,7 @@ namespace CoupDeSonde.Controllers
         public IActionResult SubmitSurvey(SurveyResponse response)
         {
             var user = HttpContext.Items["User"] as User;
-            if (_surveyService.SubmitSurvey(response, user?.Username))
+            if (_surveyService.SubmitSurvey(response, user.Username))
                 return Ok();
             else
                 return BadRequest(new { message = "You already submitted this survey or you improperly filled the survey." });
