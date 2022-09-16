@@ -31,3 +31,5 @@ app.UseHttpsRedirection();
 app.UseMiddleware<JwtTokenValidator>();
 app.MapControllers();
 app.Run();
+
+public partial class Program { }
