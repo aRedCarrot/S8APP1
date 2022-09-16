@@ -40,17 +40,6 @@ namespace UnitTests.Controllers
         }
 
         [Fact]
-        public void GetSurveyById_ReturnsOk()
-        {
-            var expectedResponse = new SurveyRequestResponse();
-            expectedResponse.Surveys = new List<Survey> { createSurvey(2) };
-            _mockSurveyService.Setup(_ => _.GetSurvey(2)).Returns(expectedResponse);
-
-            var actual = _surveyController.GetSurvey(2);
-            actual.Should().BeEquivalentTo(new OkObjectResult(expectedResponse));
-        }
-
-        [Fact]
         public void Submit_FirstAnswer_ReturnsOk()
         {
             var answers = new List<QuestionAnswer>

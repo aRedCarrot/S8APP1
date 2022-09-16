@@ -16,13 +16,6 @@ namespace CoupDeSonde.Controllers
         }
 
         [Authorize]
-        [HttpGet("getSurvey/{surveyId}")]
-        public IActionResult GetSurvey(Int32 surveyId)
-        {
-            return Ok(_surveyService.GetSurvey(surveyId));
-        }
-
-        [Authorize]
         [HttpGet("getSurveys")]
         public IActionResult GetSurveys()
         {

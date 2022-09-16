@@ -6,9 +6,6 @@ namespace CoupDeSonde.Models
     {
         public String? Error { get; set; }
 
-        // Used for sending a specific Survey
-        public Survey? Survey { get; set; }
-
         // Used for sending a list of Surveys
         public List<Survey>? Surveys { get; set; }
 

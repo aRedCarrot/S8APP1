@@ -25,9 +25,6 @@ namespace CoupDeSonde.Services
         };
         private readonly AppSettings? _appSettings;
         private readonly PasswordHasher<User> _hasher = new PasswordHasher<User>();
-        public AuthentificationService()
-        {
-        }
 
         public AuthentificationService(IOptions<AppSettings> appSettings)
         {
