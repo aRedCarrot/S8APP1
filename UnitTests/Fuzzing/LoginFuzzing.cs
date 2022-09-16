@@ -46,34 +46,6 @@ namespace UnitTests.Fuzzing
             var response = await client.PostAsync("/Login", content);
             response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         }
-
-        [Fact]
-        public async Task POST_invalUsername()
-        {
-            var application = new WebApplicationFactory<Program>();
-
-            var client = application.CreateClient();
-
-            var content = new StringContent(getJsonUser("WhoDis", "badPassw0rd").ToString(), Encoding.UTF8, "application/json");
-            var response = await client.PostAsync("/Login", content);
-            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-        }
-
-        [Fact]
-        public async Task POST_NoPassWord()
-        {
-            var application = new WebApplicationFactory<Program>();
-
-            var client = application.CreateClient();
-
-            var json = new JsonObject();
-            json.Add("username", "NotOk");
-
-            var content = new StringContent(json.ToString(), Encoding.UTF8, "application/json");
-            var response = await client.PostAsync("/Login", content);
-            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-        }
-
         
         [Theory]
         [InlineData("application/javascript")]
