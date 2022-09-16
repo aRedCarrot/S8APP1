@@ -10,7 +10,7 @@ namespace CoupDeSonde.Services
 {
     public interface IAuthentificationService
     {
-        LoginResponse Login(LoginRequest request);
+        LoginResponse? Login(LoginRequest request);
         User GetByUsername(String username);
     }
 

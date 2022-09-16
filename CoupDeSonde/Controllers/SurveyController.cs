@@ -8,7 +8,7 @@ namespace CoupDeSonde.Controllers
     [Route("[controller]")]
     public class SurveyController : Controller
     {
-        private ISurveyService _surveyService;
+        private readonly ISurveyService _surveyService;
 
         public SurveyController(ISurveyService surveyService)
         {
@@ -17,21 +17,21 @@ namespace CoupDeSonde.Controllers
 
         [Authorize]
         [HttpGet("getSurvey/{surveyId}")]
-        public IActionResult getSurvey(Int32 surveyId)
+        public IActionResult GetSurvey(Int32 surveyId)
         {
             return Ok(_surveyService.GetSurvey(surveyId));
         }
 
         [Authorize]
         [HttpGet("getSurveys")]
-        public IActionResult getSurveys()
+        public IActionResult GetSurveys()
         {
             return Ok(_surveyService.GetSurveys());
         }
 
         [Authorize]
         [HttpPost("submit")]
-        public IActionResult submitSurvey(SurveyResponse response)
+        public IActionResult SubmitSurvey(SurveyResponse response)
         {
             var user = HttpContext.Items["User"] as User;
             if (_surveyService.SubmitSurvey(response, user?.Username))
