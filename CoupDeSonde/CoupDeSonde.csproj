@@ -13,4 +13,8 @@
 
   <ProjectExtensions><VisualStudio><UserProperties surveyanswers_1json__JsonSchema="https://datahubproject.io/schemas/datahub_ingestion_schema.json" /></VisualStudio></ProjectExtensions>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="UnitTests" />
+  </ItemGroup>
+
 </Project>
