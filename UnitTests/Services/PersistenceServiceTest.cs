@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UnitTests.Services
 {
-    internal class SurveyService
+    internal class PersistenceServiceTest
     {
     }
 }

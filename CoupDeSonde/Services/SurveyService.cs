@@ -5,7 +5,6 @@ namespace CoupDeSonde.Services
 {
     public interface ISurveyService
     {
-        SurveyRequestResponse GetSurvey(int SurveyId);
         SurveyRequestResponse GetSurveys();
         bool SubmitSurvey(SurveyResponse response, string username);
     }
@@ -14,25 +13,13 @@ namespace CoupDeSonde.Services
     {
         private readonly AppSettings _appSettings;
         private readonly IPersistenceService _persistenceService;
-        private List<Survey> _surveys = new List<Survey>();
+        public List<Survey> _surveys = new List<Survey>();
 
         public SurveyService(IOptions<AppSettings> appSettings)
         {
             _appSettings = appSettings.Value;
             _persistenceService = new PersistenceService(_appSettings);
             ParseSurveyFile();
-        }
-
-        public SurveyRequestResponse GetSurvey(int SurveyId)
-        {
-            var response = new SurveyRequestResponse();
-            if (SurveyId > _surveys.Count  || SurveyId < 1)
-            {
-                response.Error = "Invalid SurveyId, Available survey Ids are [1," + (_surveys.Count) + "]";
-                return response;
-            }
-            response.Survey = _surveys[SurveyId - 1];
-            return response;
         }
 
         public SurveyRequestResponse GetSurveys()
@@ -56,36 +43,28 @@ namespace CoupDeSonde.Services
 
         private bool IsValidResponse(SurveyResponse response)
         {
-            try
-            {
-                //Check if survey id exist
-                var survey = _surveys.Single(survey => survey.SurveyId == response.SurveyId);
-                if (survey == null)
-                    return false;
-
-                var surveyQuestions = survey.SurveyQuestions.Select(question => question.QuestionId);
-                var responseQuestions = response.Responses.Select(response => response.QuestionId);
-                //checked if all questions are answered
-                if (surveyQuestions.Count() != responseQuestions.Count() || surveyQuestions.Except(responseQuestions).Any())
-                    return false;
-
-                foreach (QuestionAnswer qa in response.Responses)
-                {
-                    //Check if question id exist
-                    var question = survey.SurveyQuestions.SingleOrDefault(question => question?.QuestionId == qa.QuestionId,null);
-                    if (question == null)
-                        return false;
-
-                    //Check if option exist
-                    var answer = question.Options.SingleOrDefault(answer => answer?.OptionTitle.ToUpper() == qa.Answer.ToUpper(),null);
-                    if (answer == null)
-                        return false;
-                }
-
-                return true;
-            } catch (Exception e) {
+            //Check if survey id exist
+            var survey = _surveys.SingleOrDefault(survey => survey.SurveyId == response.SurveyId,null);
+            if (survey == null)
                 return false;
+
+            var surveyQuestions = survey.SurveyQuestions.Select(question => question.QuestionId);
+            var responseQuestions = response.Responses.Select(response => response.QuestionId);
+            //checked if all questions are answered
+            if (surveyQuestions.Count() != responseQuestions.Count() || surveyQuestions.Except(responseQuestions).Any())
+                return false;
+
+            foreach (QuestionAnswer qa in response.Responses)
+            {
+                var question = survey.SurveyQuestions.Single(question => question.QuestionId == qa.QuestionId);
+
+                //Check if option exist
+                var answer = question.Options.SingleOrDefault(answer => answer.OptionTitle.ToUpper() == qa.Answer.ToUpper(),null);
+                if (answer == null)
+                    return false;
             }
+
+            return true;
         }
 
         private void ParseSurveyFile()
@@ -95,8 +74,8 @@ namespace CoupDeSonde.Services
             
             // Our teacher gave us a txt file with linux encoded end lines, while our dummy PC use windows end line
             var END_OF_LINE = "\n";
-            if (text.Contains('\r'))
-                END_OF_LINE = "\r\n";
+            //if (text.Contains('\r'))
+            //    END_OF_LINE = "\r\n";
 
             var surveys = text.Split(END_OF_LINE + END_OF_LINE);
             var surveyId = 0;
