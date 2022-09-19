@@ -48,7 +48,10 @@ namespace CoupDeSonde.Services
 
         private Dictionary<string, List<SurveyResponse>> getRecords(){
             var path = Path.GetFullPath(_appSettings.persistencePath);
-            return JsonSerializer.Deserialize<Dictionary<string, List<SurveyResponse>>>(File.ReadAllText(path));
+            if(File.Exists(path))
+                return JsonSerializer.Deserialize<Dictionary<string, List<SurveyResponse>>>(File.ReadAllText(path));
+            else
+                return new Dictionary<string, List<SurveyResponse>>();
         } 
 
         private void writeRecords(Dictionary<string, List<SurveyResponse>> newRecords)

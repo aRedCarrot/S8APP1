@@ -70,12 +70,15 @@ namespace CoupDeSonde.Services
         private void ParseSurveyFile()
         {
             var path = Path.Combine(Directory.GetCurrentDirectory(), "sondage.txt");
+            if(!File.Exists(path))
+                return;
+
             var text = File.ReadAllText(path);
             
             // Our teacher gave us a txt file with linux encoded end lines, while our dummy PC use windows end line
             var END_OF_LINE = "\n";
-            //if (text.Contains('\r'))
-            //    END_OF_LINE = "\r\n";
+            if (text.Contains('\r'))
+                END_OF_LINE = "\r\n";
 
             var surveys = text.Split(END_OF_LINE + END_OF_LINE);
             var surveyId = 0;

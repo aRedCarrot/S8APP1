@@ -2,6 +2,7 @@ using CoupDeSonde;
 using CoupDeSonde.Services;
 using CoupDeSonde.Middlewares;
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,6 +37,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseMiddleware<JwtTokenValidator>();
+
 app.MapControllers();
 app.Run();
 
