@@ -44,7 +44,7 @@ namespace CoupDeSonde.Services
         private bool IsValidResponse(SurveyResponse response)
         {
             //Check if survey id exist
-            var survey = _surveys.SingleOrDefault(survey => survey.SurveyId == response.SurveyId,null);
+            var survey = _surveys.SingleOrDefault(survey => survey?.SurveyId == response.SurveyId,null);
             if (survey == null)
                 return false;
 
@@ -59,7 +59,7 @@ namespace CoupDeSonde.Services
                 var question = survey.SurveyQuestions.Single(question => question.QuestionId == qa.QuestionId);
 
                 //Check if option exist
-                var answer = question.Options.SingleOrDefault(answer => answer.OptionTitle.ToUpper() == qa.Answer.ToUpper(),null);
+                var answer = question.Options.SingleOrDefault(answer => answer?.OptionTitle.ToUpper() == qa.Answer.ToUpper(),null);
                 if (answer == null)
                     return false;
             }
