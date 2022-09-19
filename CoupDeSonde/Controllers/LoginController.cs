@@ -18,6 +18,9 @@ namespace CoupDeSonde.Controllers
         [HttpPost(Name = "Login")]
         public IActionResult Login(LoginRequest request)
         {
+            if(request == null || request.Username == null || request.Password == null)
+                return BadRequest(new { message = "Request format is incorrect, check swagger documentation for more details" });
+
             var response = _authService.Login(request);
 
             if (response == null)

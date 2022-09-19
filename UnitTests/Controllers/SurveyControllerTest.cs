@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace UnitTests.Controllers
@@ -69,6 +70,21 @@ namespace UnitTests.Controllers
 
             var actual = _surveyController.SubmitSurvey(request);
             actual.Should().BeEquivalentTo(new BadRequestObjectResult(new { message = "You already submitted this survey or you improperly filled the survey." }));
+        }
+
+        [Fact]
+        public void Submit_OnJsonParsingFail_ReturnsBadRequest()
+        {
+            var request = JsonSerializer.Deserialize<SurveyResponse>("{\r\n\"SurveyId\" : 1,\r\n\"Respons\" : [\r\n        {\r\n            \"QuestionId\" : 1,\r\n            \"Answer\": \"a\"\r\n        },\r\n        {\r\n            \"QuestionId\" : 2,\r\n            \"Answer\": \"b\"\r\n        },\r\n        {\r\n            \"QuestionId\" : 3,\r\n            \"Answer\": \"c\"\r\n        },\r\n        {\r\n            \"QuestionId\" : 4,\r\n            \"Answer\": \"a\"\r\n        }\r\n    ]\r\n}");
+            var actual = _surveyController.SubmitSurvey(request);
+            actual.Should().BeEquivalentTo(new BadRequestObjectResult(new { message = "Response format is incorrect, check swagger documentation for more details" }));
+        }
+
+        [Fact]
+        public void Submit_OnJsonNullParsingFail_ReturnsBadRequest()
+        {
+            var actual = _surveyController.SubmitSurvey(null);
+            actual.Should().BeEquivalentTo(new BadRequestObjectResult(new { message = "Response format is incorrect, check swagger documentation for more details" }));
         }
 
         private Survey createSurvey(int id)

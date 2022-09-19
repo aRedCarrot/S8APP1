@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<coverage line-rate="1" branch-rate="1" version="1.9" timestamp="1663365624" lines-covered="291" lines-valid="291" branches-covered="50" branches-valid="50">
+<coverage line-rate="1" branch-rate="1" version="1.9" timestamp="1663598745" lines-covered="299" lines-valid="299" branches-covered="60" branches-valid="60">
   <sources>
     <source>C:\Users\Jay\Desktop\S8APP1\CoupDeSonde\</source>
   </sources>
   <packages>
-    <package name="CoupDeSonde" line-rate="1" branch-rate="1" complexity="93">
+    <package name="CoupDeSonde" line-rate="1" branch-rate="1" complexity="102">
       <classes>
         <class name="Program" filename="Program.cs" line-rate="1" branch-rate="1" complexity="2">
           <methods>
@@ -20,20 +20,25 @@
                 <line number="18" hits="33" branch="False" />
                 <line number="19" hits="33" branch="False" />
                 <line number="20" hits="33" branch="False" />
-                <line number="21" hits="33" branch="False" />
-                <line number="24" hits="33" branch="True" condition-coverage="100% (2/2)">
+                <line number="22" hits="33" branch="False" />
+                <line number="23" hits="33" branch="False" />
+                <line number="24" hits="33" branch="False" />
+                <line number="25" hits="33" branch="False" />
+                <line number="26" hits="66" branch="False" />
+                <line number="28" hits="33" branch="False" />
+                <line number="31" hits="33" branch="True" condition-coverage="100% (2/2)">
                   <conditions>
-                    <condition number="152" type="jump" coverage="100%" />
+                    <condition number="200" type="jump" coverage="100%" />
                   </conditions>
                 </line>
-                <line number="25" hits="33" branch="False" />
-                <line number="26" hits="33" branch="False" />
-                <line number="27" hits="33" branch="False" />
-                <line number="28" hits="33" branch="False" />
-                <line number="30" hits="33" branch="False" />
-                <line number="31" hits="33" branch="False" />
                 <line number="32" hits="33" branch="False" />
                 <line number="33" hits="33" branch="False" />
+                <line number="34" hits="33" branch="False" />
+                <line number="35" hits="33" branch="False" />
+                <line number="37" hits="33" branch="False" />
+                <line number="38" hits="33" branch="False" />
+                <line number="39" hits="33" branch="False" />
+                <line number="40" hits="33" branch="False" />
               </lines>
             </method>
           </methods>
@@ -48,20 +53,25 @@
             <line number="18" hits="33" branch="False" />
             <line number="19" hits="33" branch="False" />
             <line number="20" hits="33" branch="False" />
-            <line number="21" hits="33" branch="False" />
-            <line number="24" hits="33" branch="True" condition-coverage="100% (2/2)">
+            <line number="22" hits="33" branch="False" />
+            <line number="23" hits="33" branch="False" />
+            <line number="24" hits="33" branch="False" />
+            <line number="25" hits="33" branch="False" />
+            <line number="26" hits="66" branch="False" />
+            <line number="28" hits="33" branch="False" />
+            <line number="31" hits="33" branch="True" condition-coverage="100% (2/2)">
               <conditions>
-                <condition number="152" type="jump" coverage="100%" />
+                <condition number="200" type="jump" coverage="100%" />
               </conditions>
             </line>
-            <line number="25" hits="33" branch="False" />
-            <line number="26" hits="33" branch="False" />
-            <line number="27" hits="33" branch="False" />
-            <line number="28" hits="33" branch="False" />
-            <line number="30" hits="33" branch="False" />
-            <line number="31" hits="33" branch="False" />
             <line number="32" hits="33" branch="False" />
             <line number="33" hits="33" branch="False" />
+            <line number="34" hits="33" branch="False" />
+            <line number="35" hits="33" branch="False" />
+            <line number="37" hits="33" branch="False" />
+            <line number="38" hits="33" branch="False" />
+            <line number="39" hits="33" branch="False" />
+            <line number="40" hits="33" branch="False" />
           </lines>
         </class>
         <class name="CoupDeSonde.AppSettings" filename="AppSettings.cs" line-rate="1" branch-rate="1" complexity="2">
@@ -114,33 +124,34 @@
             <line number="17" hits="2" branch="False" />
           </lines>
         </class>
-        <class name="CoupDeSonde.Services.AuthentificationService" filename="Services\AuthentificationService.cs" line-rate="1" branch-rate="1" complexity="8">
+        <class name="CoupDeSonde.Services.AuthentificationService" filename="Services\AuthentificationService.cs" line-rate="1" branch-rate="1" complexity="7">
           <methods>
             <method name="Login" signature="(CoupDeSonde.Models.LoginRequest)" line-rate="1" branch-rate="1" complexity="4">
               <lines>
-                <line number="36" hits="5" branch="False" />
-                <line number="37" hits="25" branch="False" />
-                <line number="39" hits="5" branch="True" condition-coverage="100% (4/4)">
+                <line number="35" hits="5" branch="False" />
+                <line number="36" hits="25" branch="False" />
+                <line number="38" hits="5" branch="True" condition-coverage="100% (4/4)">
                   <conditions>
                     <condition number="39" type="jump" coverage="100%" />
                     <condition number="78" type="jump" coverage="100%" />
                   </conditions>
                 </line>
-                <line number="40" hits="3" branch="False" />
-                <line number="42" hits="2" branch="False" />
-                <line number="43" hits="5" branch="False" />
+                <line number="39" hits="3" branch="False" />
+                <line number="41" hits="2" branch="False" />
+                <line number="42" hits="5" branch="False" />
               </lines>
             </method>
             <method name="GetByUsername" signature="(System.String)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="46" hits="2" branch="False" />
-                <line number="47" hits="4" branch="False" />
-                <line number="48" hits="2" branch="False" />
+                <line number="45" hits="2" branch="False" />
+                <line number="46" hits="4" branch="False" />
+                <line number="47" hits="2" branch="False" />
               </lines>
             </method>
             <method name="generateJwtToken" signature="(CoupDeSonde.Models.User)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="51" hits="2" branch="False" />
+                <line number="50" hits="2" branch="False" />
+                <line number="52" hits="2" branch="False" />
                 <line number="53" hits="2" branch="False" />
                 <line number="54" hits="2" branch="False" />
                 <line number="55" hits="2" branch="False" />
@@ -151,12 +162,6 @@
                 <line number="60" hits="2" branch="False" />
                 <line number="61" hits="2" branch="False" />
                 <line number="62" hits="2" branch="False" />
-                <line number="63" hits="2" branch="False" />
-              </lines>
-            </method>
-            <method name="&lt;.ctor&gt;b__3_0" signature="(CoupDeSonde.Models.User)" line-rate="1" branch-rate="1" complexity="1">
-              <lines>
-                <line number="32" hits="190" branch="False" />
               </lines>
             </method>
             <method name=".ctor" signature="(Microsoft.Extensions.Options.IOptions`1&lt;CoupDeSonde.AppSettings&gt;)" line-rate="1" branch-rate="1" complexity="1">
@@ -172,26 +177,27 @@
                 <line number="29" hits="38" branch="False" />
                 <line number="30" hits="38" branch="False" />
                 <line number="31" hits="38" branch="False" />
-                <line number="33" hits="38" branch="False" />
+                <line number="32" hits="38" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="36" hits="5" branch="False" />
-            <line number="37" hits="25" branch="False" />
-            <line number="39" hits="5" branch="True" condition-coverage="100% (4/4)">
+            <line number="35" hits="5" branch="False" />
+            <line number="36" hits="25" branch="False" />
+            <line number="38" hits="5" branch="True" condition-coverage="100% (4/4)">
               <conditions>
                 <condition number="39" type="jump" coverage="100%" />
                 <condition number="78" type="jump" coverage="100%" />
               </conditions>
             </line>
-            <line number="40" hits="3" branch="False" />
-            <line number="42" hits="2" branch="False" />
-            <line number="43" hits="5" branch="False" />
-            <line number="46" hits="2" branch="False" />
-            <line number="47" hits="4" branch="False" />
-            <line number="48" hits="2" branch="False" />
-            <line number="51" hits="2" branch="False" />
+            <line number="39" hits="3" branch="False" />
+            <line number="41" hits="2" branch="False" />
+            <line number="42" hits="5" branch="False" />
+            <line number="45" hits="2" branch="False" />
+            <line number="46" hits="4" branch="False" />
+            <line number="47" hits="2" branch="False" />
+            <line number="50" hits="2" branch="False" />
+            <line number="52" hits="2" branch="False" />
             <line number="53" hits="2" branch="False" />
             <line number="54" hits="2" branch="False" />
             <line number="55" hits="2" branch="False" />
@@ -202,8 +208,6 @@
             <line number="60" hits="2" branch="False" />
             <line number="61" hits="2" branch="False" />
             <line number="62" hits="2" branch="False" />
-            <line number="63" hits="2" branch="False" />
-            <line number="32" hits="190" branch="False" />
             <line number="19" hits="38" branch="False" />
             <line number="20" hits="38" branch="False" />
             <line number="21" hits="38" branch="False" />
@@ -215,7 +219,7 @@
             <line number="29" hits="38" branch="False" />
             <line number="30" hits="38" branch="False" />
             <line number="31" hits="38" branch="False" />
-            <line number="33" hits="38" branch="False" />
+            <line number="32" hits="38" branch="False" />
           </lines>
         </class>
         <class name="CoupDeSonde.Services.PersistenceService" filename="Services\PersistenceService.cs" line-rate="1" branch-rate="1" complexity="13">
@@ -628,18 +632,18 @@
           <methods>
             <method name="get_Username" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="8" hits="34" branch="False" />
+                <line number="10" hits="41" branch="False" />
               </lines>
             </method>
             <method name="get_Password" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="11" hits="16" branch="False" />
+                <line number="13" hits="21" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="8" hits="34" branch="False" />
-            <line number="11" hits="16" branch="False" />
+            <line number="10" hits="41" branch="False" />
+            <line number="13" hits="21" branch="False" />
           </lines>
         </class>
         <class name="CoupDeSonde.Models.LoginResponse" filename="Models\LoginResponse.cs" line-rate="1" branch-rate="1" complexity="3">
@@ -852,64 +856,64 @@
           <methods>
             <method name="get_SurveyId" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="8" hits="36" branch="False" />
+                <line number="8" hits="37" branch="False" />
               </lines>
             </method>
             <method name="get_Responses" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="10" hits="26" branch="False" />
+                <line number="10" hits="30" branch="False" />
               </lines>
             </method>
             <method name=".ctor" signature="(System.Int32,System.Collections.Generic.List`1&lt;CoupDeSonde.Models.QuestionAnswer&gt;)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="12" hits="13" branch="False" />
-                <line number="13" hits="13" branch="False" />
-                <line number="14" hits="13" branch="False" />
-                <line number="15" hits="13" branch="False" />
-                <line number="16" hits="13" branch="False" />
+                <line number="12" hits="14" branch="False" />
+                <line number="13" hits="14" branch="False" />
+                <line number="14" hits="14" branch="False" />
+                <line number="15" hits="14" branch="False" />
+                <line number="16" hits="14" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="8" hits="36" branch="False" />
-            <line number="10" hits="26" branch="False" />
-            <line number="12" hits="13" branch="False" />
-            <line number="13" hits="13" branch="False" />
-            <line number="14" hits="13" branch="False" />
-            <line number="15" hits="13" branch="False" />
-            <line number="16" hits="13" branch="False" />
+            <line number="8" hits="37" branch="False" />
+            <line number="10" hits="30" branch="False" />
+            <line number="12" hits="14" branch="False" />
+            <line number="13" hits="14" branch="False" />
+            <line number="14" hits="14" branch="False" />
+            <line number="15" hits="14" branch="False" />
+            <line number="16" hits="14" branch="False" />
           </lines>
         </class>
         <class name="CoupDeSonde.Models.User" filename="Models\User.cs" line-rate="1" branch-rate="1" complexity="3">
           <methods>
             <method name="get_Username" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="7" hits="193" branch="False" />
+                <line number="7" hits="195" branch="False" />
               </lines>
             </method>
             <method name="get_PasswordHash" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="10" hits="319" branch="False" />
+                <line number="10" hits="169" branch="False" />
               </lines>
             </method>
             <method name=".ctor" signature="(System.String,System.String)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="12" hits="160" branch="False" />
-                <line number="13" hits="160" branch="False" />
-                <line number="14" hits="160" branch="False" />
-                <line number="15" hits="160" branch="False" />
-                <line number="16" hits="160" branch="False" />
+                <line number="12" hits="162" branch="False" />
+                <line number="13" hits="162" branch="False" />
+                <line number="14" hits="162" branch="False" />
+                <line number="15" hits="162" branch="False" />
+                <line number="16" hits="162" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="7" hits="193" branch="False" />
-            <line number="10" hits="319" branch="False" />
-            <line number="12" hits="160" branch="False" />
-            <line number="13" hits="160" branch="False" />
-            <line number="14" hits="160" branch="False" />
-            <line number="15" hits="160" branch="False" />
-            <line number="16" hits="160" branch="False" />
+            <line number="7" hits="195" branch="False" />
+            <line number="10" hits="169" branch="False" />
+            <line number="12" hits="162" branch="False" />
+            <line number="13" hits="162" branch="False" />
+            <line number="14" hits="162" branch="False" />
+            <line number="15" hits="162" branch="False" />
+            <line number="16" hits="162" branch="False" />
           </lines>
         </class>
         <class name="CoupDeSonde.Middlewares.JwtTokenValidator" filename="Middlewares\JwtTokenValidator.cs" line-rate="1" branch-rate="1" complexity="2">
@@ -1016,20 +1020,28 @@
             <line number="29" hits="35" branch="False" />
           </lines>
         </class>
-        <class name="CoupDeSonde.Controllers.LoginController" filename="Controllers\LoginController.cs" line-rate="1" branch-rate="1" complexity="3">
+        <class name="CoupDeSonde.Controllers.LoginController" filename="Controllers\LoginController.cs" line-rate="1" branch-rate="1" complexity="9">
           <methods>
-            <method name="Login" signature="(CoupDeSonde.Models.LoginRequest)" line-rate="1" branch-rate="1" complexity="2">
+            <method name="Login" signature="(CoupDeSonde.Models.LoginRequest)" line-rate="1" branch-rate="1" complexity="8">
               <lines>
-                <line number="20" hits="5" branch="False" />
-                <line number="21" hits="5" branch="False" />
-                <line number="23" hits="5" branch="True" condition-coverage="100% (2/2)">
+                <line number="20" hits="11" branch="False" />
+                <line number="21" hits="11" branch="True" condition-coverage="100% (6/6)">
                   <conditions>
-                    <condition number="20" type="jump" coverage="100%" />
+                    <condition number="2" type="jump" coverage="100%" />
+                    <condition number="10" type="jump" coverage="100%" />
+                    <condition number="26" type="jump" coverage="100%" />
                   </conditions>
                 </line>
-                <line number="24" hits="3" branch="False" />
-                <line number="26" hits="2" branch="False" />
-                <line number="27" hits="5" branch="False" />
+                <line number="22" hits="6" branch="False" />
+                <line number="24" hits="5" branch="False" />
+                <line number="26" hits="5" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="66" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="27" hits="3" branch="False" />
+                <line number="29" hits="2" branch="False" />
+                <line number="30" hits="11" branch="False" />
               </lines>
             </method>
             <method name=".ctor" signature="(CoupDeSonde.Services.IAuthentificationService)" line-rate="1" branch-rate="1" complexity="1">
@@ -1042,23 +1054,31 @@
             </method>
           </methods>
           <lines>
-            <line number="20" hits="5" branch="False" />
-            <line number="21" hits="5" branch="False" />
-            <line number="23" hits="5" branch="True" condition-coverage="100% (2/2)">
+            <line number="20" hits="11" branch="False" />
+            <line number="21" hits="11" branch="True" condition-coverage="100% (6/6)">
               <conditions>
-                <condition number="20" type="jump" coverage="100%" />
+                <condition number="2" type="jump" coverage="100%" />
+                <condition number="10" type="jump" coverage="100%" />
+                <condition number="26" type="jump" coverage="100%" />
               </conditions>
             </line>
-            <line number="24" hits="3" branch="False" />
-            <line number="26" hits="2" branch="False" />
-            <line number="27" hits="5" branch="False" />
+            <line number="22" hits="6" branch="False" />
+            <line number="24" hits="5" branch="False" />
+            <line number="26" hits="5" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="66" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="27" hits="3" branch="False" />
+            <line number="29" hits="2" branch="False" />
+            <line number="30" hits="11" branch="False" />
             <line number="13" hits="35" branch="False" />
             <line number="14" hits="35" branch="False" />
             <line number="15" hits="35" branch="False" />
             <line number="16" hits="35" branch="False" />
           </lines>
         </class>
-        <class name="CoupDeSonde.Controllers.SurveyController" filename="Controllers\SurveyController.cs" line-rate="1" branch-rate="1" complexity="4">
+        <class name="CoupDeSonde.Controllers.SurveyController" filename="Controllers\SurveyController.cs" line-rate="1" branch-rate="1" complexity="8">
           <methods>
             <method name="GetSurveys" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -1067,26 +1087,33 @@
                 <line number="23" hits="1" branch="False" />
               </lines>
             </method>
-            <method name="SubmitSurvey" signature="(CoupDeSonde.Models.SurveyResponse)" line-rate="1" branch-rate="1" complexity="2">
+            <method name="SubmitSurvey" signature="(CoupDeSonde.Models.SurveyResponse)" line-rate="1" branch-rate="1" complexity="6">
               <lines>
-                <line number="28" hits="2" branch="False" />
-                <line number="29" hits="2" branch="False" />
-                <line number="30" hits="2" branch="True" condition-coverage="100% (2/2)">
+                <line number="28" hits="4" branch="False" />
+                <line number="29" hits="4" branch="True" condition-coverage="100% (4/4)">
                   <conditions>
-                    <condition number="48" type="jump" coverage="100%" />
+                    <condition number="2" type="jump" coverage="100%" />
+                    <condition number="18" type="jump" coverage="100%" />
                   </conditions>
                 </line>
-                <line number="31" hits="1" branch="False" />
-                <line number="33" hits="1" branch="False" />
-                <line number="34" hits="2" branch="False" />
+                <line number="30" hits="2" branch="False" />
+                <line number="32" hits="2" branch="False" />
+                <line number="33" hits="2" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="86" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="34" hits="1" branch="False" />
+                <line number="36" hits="1" branch="False" />
+                <line number="37" hits="4" branch="False" />
               </lines>
             </method>
             <method name=".ctor" signature="(CoupDeSonde.Services.ISurveyService)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="13" hits="3" branch="False" />
-                <line number="14" hits="3" branch="False" />
-                <line number="15" hits="3" branch="False" />
-                <line number="16" hits="3" branch="False" />
+                <line number="13" hits="5" branch="False" />
+                <line number="14" hits="5" branch="False" />
+                <line number="15" hits="5" branch="False" />
+                <line number="16" hits="5" branch="False" />
               </lines>
             </method>
           </methods>
@@ -1094,20 +1121,27 @@
             <line number="21" hits="1" branch="False" />
             <line number="22" hits="1" branch="False" />
             <line number="23" hits="1" branch="False" />
-            <line number="28" hits="2" branch="False" />
-            <line number="29" hits="2" branch="False" />
-            <line number="30" hits="2" branch="True" condition-coverage="100% (2/2)">
+            <line number="28" hits="4" branch="False" />
+            <line number="29" hits="4" branch="True" condition-coverage="100% (4/4)">
               <conditions>
-                <condition number="48" type="jump" coverage="100%" />
+                <condition number="2" type="jump" coverage="100%" />
+                <condition number="18" type="jump" coverage="100%" />
               </conditions>
             </line>
-            <line number="31" hits="1" branch="False" />
-            <line number="33" hits="1" branch="False" />
-            <line number="34" hits="2" branch="False" />
-            <line number="13" hits="3" branch="False" />
-            <line number="14" hits="3" branch="False" />
-            <line number="15" hits="3" branch="False" />
-            <line number="16" hits="3" branch="False" />
+            <line number="30" hits="2" branch="False" />
+            <line number="32" hits="2" branch="False" />
+            <line number="33" hits="2" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="86" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="34" hits="1" branch="False" />
+            <line number="36" hits="1" branch="False" />
+            <line number="37" hits="4" branch="False" />
+            <line number="13" hits="5" branch="False" />
+            <line number="14" hits="5" branch="False" />
+            <line number="15" hits="5" branch="False" />
+            <line number="16" hits="5" branch="False" />
           </lines>
         </class>
       </classes>

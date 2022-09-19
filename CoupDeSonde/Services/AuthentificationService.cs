@@ -29,7 +29,6 @@ namespace CoupDeSonde.Services
         public AuthentificationService(IOptions<AppSettings> appSettings)
         {
             _appSettings = appSettings.Value;
-            _users.ForEach(user => Console.WriteLine(_hasher.HashPassword(user, user.PasswordHash)));
         }
 
         public LoginResponse? Login(LoginRequest request)

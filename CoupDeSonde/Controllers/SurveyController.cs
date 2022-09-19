@@ -26,6 +26,9 @@ namespace CoupDeSonde.Controllers
         [HttpPost("submit")]
         public IActionResult SubmitSurvey(SurveyResponse response)
         {
+            if (response == null || response.Responses == null)
+                return BadRequest(new { message = "Response format is incorrect, check swagger documentation for more details" });
+
             var user = HttpContext.Items["User"] as User;
             if (_surveyService.SubmitSurvey(response, user.Username))
                 return Ok();

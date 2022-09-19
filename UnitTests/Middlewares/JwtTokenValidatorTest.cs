@@ -39,7 +39,7 @@ namespace UnitTests.Middlewares
         public async void Invoke_OnValidAuthorizationHeader_AttachUserToContext()
         {
             var testAcc = new User("admin", "AQAAAAEAACcQAAAAEJYZUWmKW5xCOmiNHp0eBdzOIdoPUDYy7h0gTtVZwWfdBYVXTm2SUJwA2pyfGUEOdg==");
-            httpContext.Request.Headers.Add("Authorization","Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwibmJmIjoxNjYzMzQ1MDA3LCJleHAiOjE2NjM0MzE0MDcsImlhdCI6MTY2MzM0NTAwN30.ZRx75BX7WNeQwgyZfEeHI25QoFBRAWyACRXZfzze6Qs");
+            httpContext.Request.Headers.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwibmJmIjoxNjYzNTk4MDE3LCJleHAiOjE2NjM2ODQ0MTcsImlhdCI6MTY2MzU5ODAxN30.Ovbq4NNMt_iuKEe_-L8lwmsQ3dHveXkK88LrD--NLvc");
             await jwtTokenValidator.Invoke(httpContext, authentificationService);
             httpContext.Items["User"].Should().BeEquivalentTo(testAcc);
         }
