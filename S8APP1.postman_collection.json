@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d3d993dd-b202-4e6e-8e2b-0227aa2ff4aa",
+		"_postman_id": "731673bc-9949-4443-9b38-aeaf862ee6e1",
 		"name": "S8APP1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -80,44 +80,6 @@
 			"response": []
 		},
 		{
-			"name": "GetSurvey Copy",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwibmJmIjoxNjYzMDI5NzUxLCJleHAiOjE2NjMxMTYxNTEsImlhdCI6MTY2MzAyOTc1MX0.Ti2U3y_CXrcg9XNqWfVYXLCLmk2nLW-kckWgtn_ZQcI",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://localhost:5001/Survey/getSurvey/1",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "5001",
-					"path": [
-						"Survey",
-						"getSurvey",
-						"1"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "2",
-							"disabled": true
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Submit Valide",
 			"request": {
 				"auth": {
@@ -171,7 +133,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwibmJmIjoxNjYzMDI5NzUxLCJleHAiOjE2NjMxMTYxNTEsImlhdCI6MTY2MzAyOTc1MX0.Ti2U3y_CXrcg9XNqWfVYXLCLmk2nLW-kckWgtn_ZQcI",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwibmJmIjoxNjYzNjE0MTY1LCJleHAiOjE2NjM3MDA1NjQsImlhdCI6MTY2MzYxNDE2NX0.OBqZ10q-DeeWxAxgrMnFeHEKenkpPL_dS2t6NK-zLdk",
 							"type": "string"
 						}
 					]
